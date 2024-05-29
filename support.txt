@@ -18,6 +18,7 @@ Remove-Item *.*
 while($true){	
    $ex = [System.IO.File]::Exists($location)	
 	if($ex){
+		Start-Sleep 5;
 		break;
 	} 
 }
