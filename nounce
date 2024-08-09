@@ -1,0 +1,14 @@
+$TenantId = "19a03645-a17b-129e-a8eb-109ea7644bed"
+$URL = "https://login.microsoftonline.com/$TenantId/oauth2/token"
+
+$Params = @{
+    "URI"     = $URL
+    "Method"  = "POST"
+}
+$Body = @{
+"grant_type" = "srv_challenge"
+}
+$Result = Invoke-RestMethod @Params -UseBasicParsing -Body $Body
+$Result.Nonce
+
+AwABEgEAAAACAOz_BQD0_yk9hu5MLSzCyFYplKfUWCl0XyOdrvj2JYuxK2owtq7treV2gjLcXlvnoM2jUKwjUIq0j3cBuIzq15AWhTwXzrggAA
